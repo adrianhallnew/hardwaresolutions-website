@@ -1,0 +1,10 @@
+title = "Hardware Solutions gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Allow empty/placeholder env keys"
+paths = [
+  '''\.env\.example$''',
+]
