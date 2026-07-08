@@ -89,3 +89,56 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
 }
+
+/* Lightbox enter/exit — design.md §3.4. Radix Presence waits for these to
+   finish before unmounting, so data-[state=closed] actually gets to play. */
+@keyframes lightbox-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes lightbox-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes lightbox-scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes lightbox-scale-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.97); }
+}
+
+/* Partner logo grayscale-to-color hover — design.md §4.11. Gated behind
+   hover:hover so a tap on touch devices doesn't "stick" a false hover state. */
+.partner-logo-img {
+  filter: grayscale(1);
+  transition: filter var(--duration-fast) var(--ease-out);
+}
+@media (hover: hover) {
+  .group:hover .partner-logo-img {
+    filter: grayscale(0);
+  }
+}
+.group:focus-visible .partner-logo-img,
+.group:has(:focus-visible) .partner-logo-img {
+  filter: grayscale(0);
+}
+
+/*
+ * prefers-reduced-motion — design.md §1.6: disable transform-based motion,
+ * keep opacity crossfades (they don't trigger vestibular issues). Scoped to
+ * the specific utility classes/animations used for transform-based motion
+ * rather than a blanket `transition-duration: 0` on everything, so
+ * transition-colors/transition-opacity elsewhere are left alone.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .transition-transform,
+  .transition-\[grid-template-rows\] {
+    transition-duration: 0.01ms !important;
+  }
+  [class*="animate-"] {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
