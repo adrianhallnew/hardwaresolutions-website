@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — see docs/design.md §1 for the full rationale behind every value.
+ *
+ * Spacing and radius are deliberately NOT redefined here: Tailwind v4's default
+ * --spacing (0.25rem / 4px) already matches design.md §1.3's base unit exactly,
+ * and the default radius scale already matches design.md §1.4's element mapping:
+ *   - Chips/badges  -> rounded-sm  (4px)
+ *   - Buttons/inputs -> rounded-md (6px)
+ *   - Cards/images  -> rounded-lg  (8px)
+ *   - Lightbox/modal -> rounded-xl (12px)
+ */
+@theme {
+  /* Colors — design.md §1.1 */
+  --color-paper: #F7F6F3;
+  --color-graphite: #191B1D;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #23262A;
+  --color-ink: #1A1C1E;
+  --color-ink-inverse: #F2F1ED;
+  --color-ink-muted: #5B5F63;
+  --color-ink-muted-inverse: #A8ACAF;
+  --color-border: #DCD9D1;
+  --color-border-inverse: #3A3D40;
+  --color-success: #3A7A4E;
+  --color-error: #B3402F;
+
+  /*
+   * No accent color — design.md §1.1 MONOCHROME RULE. Primary buttons use
+   * bg-ink / text-paper directly; hover is bg-ink/90 (opacity shade, not a
+   * new hue); press uses the scale(0.97) transform, no color change.
+   */
+
+  /* Shadows — design.md §1.5 (ink-tinted, not pure black) */
+  --shadow-card: 0 1px 2px 0 rgba(26, 28, 30, 0.06), 0 1px 1px 0 rgba(26, 28, 30, 0.04);
+  --shadow-raised: 0 4px 12px 0 rgba(26, 28, 30, 0.10);
+  --shadow-modal: 0 16px 48px 0 rgba(26, 28, 30, 0.24);
+
+  /*
+   * Motion — design.md §1.6.
+   * --ease-in / --ease-out / --ease-in-out intentionally override Tailwind's
+   * own default easing keys, so the built-in `ease-out`/`ease-in-out`/`ease-in`
+   * utility classes automatically use these custom curves everywhere.
+   */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+
+  --duration-press: 120ms;
+  --duration-fast: 160ms;
+  --duration-medium: 220ms;
+  --duration-medium-out: 180ms;
+
+  /* Typography — design.md §1.2, semantic names (not raw sizes) */
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: 2.75rem;
+  --text-hero--line-height: 1.1;
+  --text-h1: 2rem;
+  --text-h1--line-height: 1.15;
+  --text-h2: 1.5rem;
+  --text-h2--line-height: 1.25;
+  --text-h3: 1.125rem;
+  --text-h3--line-height: 1.35;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.6;
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.5;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.2;
+}
+
+/*
+ * Hero is the one responsive type-scale exception (44px mobile -> 56px at lg:,
+ * design.md §1.2) — handled as a component-level `lg:text-[3.5rem]` override
+ * in Phase 2, not a second token.
+ *
+ * Font weights use Tailwind's existing defaults (font-normal=400, font-medium=500,
+ * font-semibold=600) — design.md's weights already align, no overrides needed.
+ *
+ * Label/eyebrow role also needs `tracking-[0.06em] uppercase` at the component
+ * level (design.md §1.2) — letter-spacing/casing aren't part of the text-* token.
+ */
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
