@@ -1,16 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+import { OurWorkGallery } from "./OurWorkGallery";
 
-import { useState } from "react";
-import { galleryItems } from "@/content/gallery";
-import { GalleryGrid } from "@/components/gallery/GalleryGrid";
-import { FilterChips, type GalleryCategory } from "@/components/gallery/FilterChips";
+export const metadata: Metadata = {
+  title: "Our Work | Hardware Solutions",
+  description: "Completed security, monitoring, and networking installations.",
+};
 
 export default function OurWorkPage() {
-  const [category, setCategory] = useState<GalleryCategory>("all");
-
-  const filtered =
-    category === "all" ? galleryItems : galleryItems.filter((item) => item.category === category);
-
   return (
     <div className="mx-auto max-w-[1200px] px-6 py-16 md:px-12">
       <h1 className="text-h1 font-semibold text-ink">Our Work</h1>
@@ -18,17 +14,7 @@ export default function OurWorkPage() {
         A look at completed installations across security, monitoring, and networking.
       </p>
 
-      <div className="mt-8">
-        <FilterChips value={category} onChange={setCategory} />
-      </div>
-
-      <div className="mt-6">
-        <GalleryGrid
-          items={filtered}
-          totalCount={galleryItems.length}
-          onClearFilter={category !== "all" ? () => setCategory("all") : undefined}
-        />
-      </div>
+      <OurWorkGallery />
     </div>
   );
 }

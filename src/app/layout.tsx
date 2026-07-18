@@ -11,8 +11,18 @@ const publicSans = Public_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: "Hardware Solutions",
   description: "IoT security, monitoring, and networking systems.",
+  openGraph: {
+    type: "website",
+    siteName: "Hardware Solutions",
+    images: ["/og-default.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.jpg"],
+  },
 };
 
 export default function RootLayout({
