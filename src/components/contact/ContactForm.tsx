@@ -57,7 +57,7 @@ export function ContactForm() {
 
   if (showSuccess) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-lg border border-border bg-surface p-8 text-center opacity-0 animate-[lightbox-fade-in_var(--duration-medium)_var(--ease-out)] [animation-fill-mode:forwards]">
+      <div className="flex flex-col items-center gap-4 rounded-xl border border-border bg-surface p-8 text-center opacity-0 animate-[lightbox-fade-in_var(--duration-medium)_var(--ease-out)] [animation-fill-mode:forwards]">
         <h2 className="text-h3 font-medium text-ink">Enquiry sent</h2>
         <p className="text-body text-ink-muted">We&apos;ll get back to you within 1 business day.</p>
         <Button

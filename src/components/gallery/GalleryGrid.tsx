@@ -44,7 +44,7 @@ export function GalleryGrid({
             type="button"
             onClick={() => setOpenIndex(index)}
             aria-label={`View image: ${item.caption}`}
-            className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-card transition-shadow duration-fast ease-out hover:shadow-raised focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
+            className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-card transition-shadow duration-fast ease-out hover:shadow-raised focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-offset-2"
           >
             <Image
               src={item.src}

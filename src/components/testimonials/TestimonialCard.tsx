@@ -6,7 +6,7 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const service = testimonial.service ? services.find((s) => s.slug === testimonial.service) : undefined;
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg border border-border bg-surface p-6 shadow-card">
+    <div className="flex flex-col gap-4 rounded-xl border border-border bg-surface p-6 shadow-card">
       <p className="text-body-lg text-ink">&ldquo;{testimonial.quote}&rdquo;</p>
       <div>
         <p className="text-caption text-ink-muted">

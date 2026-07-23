@@ -40,7 +40,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <h1 className="text-h1 font-semibold text-ink">{service.name}</h1>
           <p className="mt-4 max-w-[68ch] text-body-lg text-ink-muted">{service.description}</p>
         </div>
-        <div className="relative aspect-[3/2] w-full flex-1 overflow-hidden rounded-lg">
+        <div className="relative aspect-[3/2] w-full flex-1 overflow-hidden rounded-xl">
           <Image
             src={service.heroImage}
             alt={`Placeholder image — ${service.name}`}
@@ -55,7 +55,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         <h2 className="text-h2 font-semibold text-ink">What&apos;s included</h2>
         <ul className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3">
           {service.features.map((feature) => (
-            <li key={feature} className="rounded-lg border border-border bg-surface p-4 text-body text-ink">
+            <li key={feature} className="rounded-xl border border-border bg-surface p-4 text-body text-ink">
               {feature}
             </li>
           ))}

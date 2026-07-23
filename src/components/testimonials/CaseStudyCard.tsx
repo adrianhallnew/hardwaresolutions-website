@@ -5,10 +5,10 @@ export function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
   return (
     <div
       id={caseStudy.id}
-      className="flex flex-col gap-6 rounded-lg border border-border bg-surface p-6 shadow-card md:flex-row"
+      className="flex flex-col gap-6 rounded-xl border border-border bg-surface p-6 shadow-card md:flex-row"
     >
       {caseStudy.image && (
-        <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-lg md:w-48">
+        <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-xl md:w-48">
           <Image src={caseStudy.image} alt={caseStudy.title} fill className="object-cover" loading="lazy" />
         </div>
       )}
